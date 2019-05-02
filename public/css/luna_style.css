@@ -1,0 +1,89 @@
+.dark-blue{
+    background-color: #0d5eaf;
+    color: #fff;
+}
+
+/*.blue{
+    background-color: #01adee;
+    color: #fff;
+}*/
+
+.light-blue{
+    background-color: #8be8f8;
+    color: #000;
+}
+
+.gray{
+    background-color: #eaeaea;
+    color: #000;
+}
+
+body {
+    background-color: #f3f2f2;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size:1.14rem;
+}
+
+.shop-header {
+    line-height: 1.5rem;
+    border-bottom: 1px solid #01adee;
+    background: #f3f2f2;
+}
+.shop-supmenu{
+    background-color: rgba(1, 173, 238, 0.06);
+}
+.shop-nav {
+    border-bottom: 1px solid #01adee;
+    background: rgb(217, 240, 255);
+}
+
+#shops,#company{
+    margin-left: 2rem;
+}
+#language {
+    margin-right: 2rem;
+}
+
+.top a[href]:hover{
+    color: #01adee;
+}
+.top a:visited{
+    color: #000;
+}
+.top a:link{
+    color: #000;
+}
+.top a{
+    text-decoration:none;
+}
+
+.shop-header__logo,
+.shop-header__logo a{
+    display: block;
+    height: 4.1rem;
+    width: 9.6rem;
+    text-decoration: none;
+}
+.shop-header__logo img{
+    width:inherit;
+    height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.submenu{
+    font-size: 1.4rem;
+}
+
+footer{
+    border-top: 1px solid #01adee;
+    background: rgb(217, 240, 255);
+}
+.footer-text{
+    color: #000;
+}
+.footer-text li>a{
+    color: #000;
+}
