@@ -92,6 +92,7 @@
                                     <a class="dropdown-item" href="#">{{ trans('pages.forGirls7') }}</a>
                                     <a class="dropdown-item" href="#">{{ trans('pages.forGirls8') }}</a>
                                 </div>
+
                             </li>
                             <li class="dropdown">
                                 <a class="p-2" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -105,6 +106,9 @@
                                     <a class="dropdown-item" href="#">{{ trans('pages.forBoys5') }}</a>
                                     <a class="dropdown-item" href="#">{{ trans('pages.forBoys6') }}</a>
                                 </div>
+                            </li>
+                            <li>
+                                <a class="p-2 text-danger" href="#">SALE</a>
                             </li>
                             <li>
                                 <a class="p-2" href="#">{{ trans('pages.promotions') }}</a>
