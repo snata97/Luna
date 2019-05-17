@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class Order extends Model
         'date',
         'cost',
         'address',
-        'login',
+        'id_user',
     ];
     protected $table = 'orders';
 }

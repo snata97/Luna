@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +17,9 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
-    <!-- Fonts -->
-   {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
+
+    {{--<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -33,34 +33,47 @@
 
 </head>
 <body>
-            <div class="shop-supmenu">
-                <div class="row flex-nowrap justify-content-between align-items-center top">
-                    <div class="pt-1 ml-4">
-                        <span>{{ trans('pages.language') }}:</span>
-                        <a href="setlocale/ru">
-                            RU
-                        </a>
-                        <a href="setlocale/en">
-                            EN
-                        </a>
-                    </div>
-                    <div class="mr-4 justify-content-end align-items-center text-muted">
-                        <a href="#">
-                            {{ trans('pages.login') }}
-                        </a>
-                        <a href="#">
-                            {{ trans('pages.checkin') }}
-                        </a>
-                    </div>
+      <div class="shop-supmenu">
+           <div class="row flex-nowrap justify-content-between align-items-center top">
+                <div class="pt-1 ml-4">
+                    <span>{{ trans('pages.language') }}:</span>
+                    <a href="/setlocale/ru">
+                        RU
+                    </a>
+                    <a href="/setlocale/en">
+                        EN
+                    </a>
                 </div>
-            </div>
+                <div class="mr-4 justify-content-end align-items-center text-muted">
+                    @if (Auth::check()) {
+                    <span>LALALA{{ Auth::user()->id}}</span>
+                    }
+                    @endif{{--
+                    <span>{{ Auth::guard('user')->check()}}</span>--}}
+                       @auth
+                            <span>{{ Auth::user()->fio }}</span>
+                           <a href="{{ url('/user/logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                               {{ trans('pages.logout') }}
+                           </a>
+                            <form id="logout-form" action="{{ url('/user/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                            </form>
+                       @else
+                               <a href="{{ url('/user/login') }}">
+                                   {{ trans('pages.login') }}
+                               </a>
+                               <a href="{{ url('/user/register') }}">
+                                   {{ trans('pages.register') }}
+                           </a>
+                       @endauth
+                </div>
+           </div>
+      </div>
             <header class="sticky-top z-index-1">
                 <div class="shop-header">
                     <div class="row flex-nowrap justify-content-between align-items-center">
-                        {{--<div class="col-4 pt-3 text-muted top">
-                            <a id="company" href="#">О компании</a>
-                            <a id="shops" href="#">Магазины</a>
-                        </div>--}}
                         <div class="col-4 d-flex">
                             <form class="form-inline ml-2">
                                 <i class="fas fa-search mr-2" aria-hidden="true"></i>
@@ -68,7 +81,7 @@
                             </form>
                         </div>
                         <div class="col-4 d-flex justify-content-center align-items-center">
-                            <a class="shop-header__logo" href="#"><img src="{{ asset('img/logo.png') }}" alt="logo"></a>
+                            <a class="shop-header__logo" href="/"><img src="{{ asset('img/logo.png') }}" alt="logo"></a>
                         </div>
                         <div class="col-4 d-flex justify-content-end">
                             <i class="fas fa-shopping-basket mr-2"></i>
@@ -92,7 +105,6 @@
                                     <a class="dropdown-item" href="#">{{ trans('pages.forGirls7') }}</a>
                                     <a class="dropdown-item" href="#">{{ trans('pages.forGirls8') }}</a>
                                 </div>
-
                             </li>
                             <li class="dropdown">
                                 <a class="p-2" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -125,41 +137,25 @@
                     </div>
                 </nav>
             </header>
-
-
-
-<div id="app">
-
-    <!-- /Start your project here-->
-
-    <main class="py-4">
+  <main class="py-4">
         @yield('content')
     </main>
-</div>
 </body>
 <footer class="page-footer font-small  {{--winter-neva-gradient--}}pt-4">
-
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left footer-text">
-
         <!-- Grid row -->
         <div class="row">
-
             <!-- Grid column -->
             <div class="col-md-5 mt-md-0 mt-3">
-
                 <!-- Content -->
                 <h5 class="text-uppercase">О нас</h5>
                 <p>Here you can use rows and columns here to organize your footer content.</p>
-
             </div>
             <!-- Grid column -->
-
             <hr class="clearfix w-100 d-md-none pb-3">
-
             <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3">
-
                 <!-- Links -->
                 <h5 class="text-uppercase">Как нас найти</h5>
                 <div class="z-depth-1-half map-container mb-4" style="height: 300px">
@@ -167,13 +163,9 @@
                 </div>
             </div>
             <!-- Grid column -->
-
-            <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3">
-
                 <!-- Links -->
                 <h5 class="text-uppercase">Контакты</h5>
-
                 <ul class="list-unstyled">
                     <li>
                         <p>
@@ -192,20 +184,15 @@
                             <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
                     </li>
                 </ul>
-
             </div>
             <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
-
     </div>
     <!-- Footer Links -->
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3"><span class="footer-text">© 2019 Copyright: Интернет магазин одежды для детей</span>
     </div>
     <!-- Copyright -->
-
 </footer>
 </html>

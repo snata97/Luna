@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,8 @@ class Promotion extends Model
 {
     protected $fillable = [
         'id',
-        'name',
+        'name_ru',
+        'name_en',
         'discount',
         'start',
         'end',

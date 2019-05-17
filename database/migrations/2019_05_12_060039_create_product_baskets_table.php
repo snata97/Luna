@@ -15,10 +15,10 @@ class CreateProductBasketsTable extends Migration
     {
         Schema::create('product_basket', function (Blueprint $table) {
             $table->bigInteger('id_product')->unsigned();
-            $table->string('login');
+            $table->bigInteger('id_user')->unsigned();
             $table->foreign('id_product')->references('id')->on('products');
-            $table->foreign('login')->references('login')->on('users');
-            $table->primary(array('id_product', 'login'));
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->primary(array('id_product', 'id_user'));
             $table->timestamps();
         });
     }

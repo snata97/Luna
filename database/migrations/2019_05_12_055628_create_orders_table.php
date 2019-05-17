@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->date('date');
             $table->float('cost',8,2);
-            $table->string('address');
-            $table->string('login');
-            $table->foreign('login')->references('login')->on('users');
+            $table->string('address',300);
+            $table->BigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -15,10 +15,10 @@ class CreateReviewUsersTable extends Migration
     {
         Schema::create('review_user', function (Blueprint $table) {
             $table->bigInteger('id_review')->unsigned();
-            $table->string('login');
+            $table->bigInteger('id_user')->unsigned();
             $table->foreign('id_review')->references('id')->on('reviews');
-            $table->foreign('login')->references('login')->on('users');
-            $table->primary(array('id_review', 'login'));
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->primary(array('id_review', 'id_user'));
             $table->timestamps();
         });
     }

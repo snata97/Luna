@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-class HomeController
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,7 +18,7 @@ class HomeController
      */
     public function __construct()
     {
-      /*  $this->middleware(['auth','verified']);*/
+         /*$this->middleware('user');*/
     }
     /**
      * Show the application dashboard.

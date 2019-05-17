@@ -14,11 +14,11 @@ class CreateReviewProductsTable extends Migration
     public function up()
     {
         Schema::create('review_product', function (Blueprint $table) {
-            $table->bigInteger('id_order')->unsigned();
+            $table->bigInteger('id_product')->unsigned();
             $table->bigInteger('id_review')->unsigned();
-            $table->foreign('id_order')->references('id')->on('orders');
+            $table->foreign('id_product')->references('id')->on('products');
             $table->foreign('id_review')->references('id')->on('reviews');
-            $table->primary(array('id_order', 'id_review'));
+            $table->primary(array('id_product', 'id_review'));
             $table->timestamps();
         });
     }

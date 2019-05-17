@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Review_users extends Model
 {
     protected $fillable = [
-        'id_rewiew',
-        'login',
+        'id_review',
+        'id_user',
     ];
-    protected $table = 'rewiew_user';
+    protected $table = 'review_user';
 }

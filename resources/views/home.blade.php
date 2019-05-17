@@ -3,7 +3,8 @@
 @section('title','Luna - Главная страница')
 
 @section('content')
-    <p>{{ trans('pages.welcome') }}</p>
+ <p>{{ App::getLocale() }}</p>
+ <p>{{ trans('pages.welcome') }}</p>
     <p>{{ trans('pages.welcome') }}</p>
     <p>{{ trans('pages.welcome') }}</p>
     <p>{{ trans('pages.welcome') }}</p>
